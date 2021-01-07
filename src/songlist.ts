@@ -47,6 +47,36 @@ export const songlist = {
   'A0046': '真夏は誰のモノ？',
   'A0047': '地元愛♡満タン☆サマーライフ',
   'A0048': '夏の終わりの雨音が',
+  'A0049': '未来の僕らは知ってるよ',
+  'A0050': '君の瞳を巡る冒険',
+  'A0051': '勇気はどこに？君の胸に！',
+  'A0052': '“MY LIST” to you!',
+  'A0053': 'MY舞☆TONIGHT',
+  'A0054': 'MIRACLE WAVE',
+  'A0055': 'Awaken the power',
+  'A0056': 'CRASH MIND',
+  'A0057': 'DROPOUT!?',
+  'A0058': 'WATER BLUE NEW WORLD',
+  'A0059': 'WONDERFUL STORIES',
+  'A0060': 'One More Sunshine Story',
+  'A0061': 'おやすみなさん！',
+  'A0062': 'in this unstable world',
+  'A0063': 'Pianoforte Monologue',
+  'A0064': 'Beginner\'s Sailing',
+  'A0065': 'RED GEM WINK',
+  'A0066': 'WHITE FIRST LOVE',
+  'A0067': 'New winding road',
+  'A0068': 'さかなかなんだか？',
+  'A0069': 'キセキヒカル',
+  'A0070': 'Guilty!? Farewell party',
+  'A0071': 'サクラバイバイ',
+  'A0072': '卒業ですね',
+  'A0073': 'ホップ・ステップ・ワーイ！',
+  'A0074': 'Thank you, FRIENDS!!',
+  'A0075': 'No.10',
+  'A0076': 'ハジマリロード',
+  'A0077': 'Marine Border Parasol',
+  'A0078': '予測不可能Driving!',
 }
 
 interface SongGroup {
@@ -96,5 +126,25 @@ export const songGroup: SongGroup = {
   'G010': {
     name: 'Duo-Trio Collection vol.1',
     songsId: ['A0045', 'A0046', 'A0047', 'A0048'],
+  },
+  'G011': {
+    name: 'Animation 2nd season single',
+    songsId: ['A0049', 'A0050', 'A0051', 'A0052', 'A0053', 'A0054', 'A0055', 'A0056', 'A0057', 'A0058', 'A0059'],
+  },
+  'G012': {
+    name: 'Animation 2nd season BD special',
+    songsId: ['A0060', 'A0061', 'A0062', 'A0063', 'A0064', 'A0065', 'A0066', 'A0067', 'A0068', 'A0069', 'A0070', 'A0071', 'A0072'],
+  },
+  'G013': {
+    name: 'Aqours Hop! Step! Jump! Project!',
+    songsId: ['A0073'],
+  },
+  'G014': {
+    name: 'Aqours 4th LoveLive! ~Sailing to the Sunshine~',
+    songsId: ['A0074', 'A0075'],
+  },
+  'G015': {
+    name: 'Movie Seven-net special',
+    songsId: ['A0076', 'A0077', 'A0078'],
   },
 }
