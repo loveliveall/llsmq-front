@@ -12,6 +12,7 @@ module.exports = (_, argv) => {
       alias: {
         '@': path.resolve(__dirname, 'src'),
         'react': 'preact/compat',
+        'react-dom': 'preact/compat',
       },
       extensions: ['.js', '.ts', '.tsx'],
     },

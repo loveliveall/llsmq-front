@@ -1,12 +1,13 @@
 import { FunctionComponent } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import { RouteComponentProps, navigate } from '@reach/router';
+import Select from 'react-select';
 
 import { CentralizedRow, Paragraph, Button } from '@/styles';
 
 import { API_ENDPOINT } from '@/const';
 import { Route } from '@/routes';
-import { songlist, songGroup } from '@/songlist';
+import { songlist, optionsForSelect } from '@/songlist';
 
 import { getHandleName } from '@/utils';
 
@@ -30,13 +31,23 @@ function getProblemSec(qNo: number) {
   return 0.5;
 }
 
+interface SelectOption {
+  value: string,
+  label: string,
+}
+
+const INITIAL_SELECTED = {
+  value: 'A0001',
+  label: songlist['A0001'],
+}
+
 const Problem: FunctionComponent<RouteComponentProps> = () => {
   const [isLoadingProblem, setIsLoadingProblem] = useState(false);
   const [problem, setProblem] = useState({
     qNo: 0,
     assetPath: '',
   })
-  const [selected, setSelected] = useState(Object.keys(songlist)[0]);
+  const [selected, setSelected] = useState(INITIAL_SELECTED);
   const [isResultShowing, setIsResultShowing] = useState(false);
   const [isLoadingResult, setIsLoadingResult] = useState(false);
   const [result, setResult] = useState<ScoreResult>({
@@ -84,7 +95,7 @@ const Problem: FunctionComponent<RouteComponentProps> = () => {
           'X-Handle-Name': handleName,
         },
         body: JSON.stringify({
-          'answer': selected,
+          'answer': selected.value,
         }),
       });
       if (res.ok) {
@@ -100,7 +111,7 @@ const Problem: FunctionComponent<RouteComponentProps> = () => {
 
   const onNextProblem = () => {
     setIsResultShowing(false);
-    setSelected(Object.keys(songlist)[0]);
+    setSelected(INITIAL_SELECTED);
     fetchProblem();
   }
 
@@ -170,18 +181,13 @@ const Problem: FunctionComponent<RouteComponentProps> = () => {
       ) : (
         <>
           <CentralizedRow>
-          <select value={selected} onChange={(e) => setSelected((e.target as HTMLInputElement).value)}>
-            {Object.keys(songGroup).map((groupKey) => {
-              const group = songGroup[groupKey];
-              return (
-                <optgroup label={group!.name} key={groupKey}>
-                  {group!.songsId.map((key) => (
-                    <option value={key}>{songlist[key]}</option>
-                  ))}
-                </optgroup>
-              );
-            })}
-          </select>
+            <div style={{ width: '500px' }}>
+              <Select
+                value={selected}
+                onChange={(e: SelectOption) => setSelected(e)}
+                options={optionsForSelect}
+              />
+            </div>
           </CentralizedRow>
           <CentralizedRow />
           <CentralizedRow>

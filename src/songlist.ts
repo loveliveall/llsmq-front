@@ -243,3 +243,11 @@ export const songGroup: SongGroup = {
     songsId: ['A0114', 'A0115', 'A0116', 'A0117'],
   },
 }
+
+export const optionsForSelect = Object.keys(songGroup).map((key) => ({
+  label: songGroup[key]!.name,
+  options: songGroup[key]!.songsId.map((songId) => ({
+    value: songId,
+    label: songlist[songId],
+  })),
+}));
