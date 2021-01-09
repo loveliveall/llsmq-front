@@ -2,6 +2,8 @@ import { FunctionComponent } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import { RouteComponentProps, navigate } from '@reach/router';
 
+import { CentralizedRow, Paragraph, Button } from '@/styles';
+
 import { API_ENDPOINT } from '@/const';
 import { Route } from '@/routes';
 import { songlist, songGroup } from '@/songlist';
@@ -17,6 +19,15 @@ interface ScoreResult {
   ok: boolean,
   corrected: number,
   answer_id?: string,
+}
+
+function getProblemSec(qNo: number) {
+  if (qNo <= 5) return 3;
+  if (qNo <= 10) return 2;
+  if (qNo <= 15) return 1.5;
+  if (qNo <= 20) return 1;
+  if (qNo <= 25) return 0.75;
+  return 0.5;
 }
 
 const Problem: FunctionComponent<RouteComponentProps> = () => {
@@ -99,7 +110,7 @@ const Problem: FunctionComponent<RouteComponentProps> = () => {
 
   useEffect(() => {
     // Auto load problem on initial page load
-    fetchProblem()
+    //fetchProblem()
   }, [])
 
   const { answer_id } = result;
@@ -108,50 +119,66 @@ const Problem: FunctionComponent<RouteComponentProps> = () => {
     <div>
       {/* Problem Section */}
       {isLoadingProblem ? (
-        <div>Loading...</div>
+        <CentralizedRow>
+          <Paragraph>문제 생성 중...</Paragraph>
+        </CentralizedRow>
       ) : (
-        <div>
-          <div>{`${problem.qNo}번째 문제`}</div>
-          <audio src={problem.assetPath} controls>
-            HTML audio tag is not supported
-          </audio>
-        </div>
+        <>
+          <CentralizedRow>
+            <h2 style={{ color: '#cccccc' }}>{`${problem.qNo}번째 문제`}</h2>
+          </CentralizedRow>
+          <CentralizedRow>
+            <Paragraph>{`문제 길이: ${getProblemSec(problem.qNo)}초`}</Paragraph>
+          </CentralizedRow>
+          <CentralizedRow>
+            <audio src={problem.assetPath} controls>
+              HTML audio tag is not supported
+            </audio>
+          </CentralizedRow>
+        </>
       )}
       {/* Answer & result section */}
-      {isResultShowing ? (
-        result.ok ? (
-          <div>
-            <p>정답입니다 ٩(๑＞◡＜๑)۶</p>
-            <p>{`연속으로 ${result.corrected} 문제를 맞추셨습니다!`}</p>
-            <button onClick={onNextProblem}>다음 문제 풀기</button>
-          </div>
+      <CentralizedRow>
+        {isResultShowing ? (
+          result.ok ? (
+            <>
+              <Paragraph>정답입니다 ٩(๑＞◡＜๑)۶</Paragraph>
+              <Paragraph>{`연속으로 ${result.corrected} 문제를 맞추셨습니다!`}</Paragraph>
+              <Button onClick={onNextProblem}>다음 문제 풀기</Button>
+            </>
+          ) : (
+            <>
+              <Paragraph>틀렸습니다 ｡°(´∩ω∩`)°｡</Paragraph>
+              {answer_id && (
+                <Paragraph>{`정답은 ${songlist[answer_id as keyof typeof songlist]} 입니다 (*ﾟДﾟ)`} </Paragraph>
+              )}
+              <Paragraph>{`연속으로 총 ${result.corrected} 문제를 맞추셨습니다!`}</Paragraph>
+              <Button onClick={goHome}>처음으로 돌아가기</Button>
+            </>
+          )
         ) : (
           <div>
-            <p>틀렸습니다 ｡°(´∩ω∩`)°｡</p>
-            {answer_id && (
-              <p>{`정답은 ${songlist[answer_id as keyof typeof songlist]} 입니다 (*ﾟДﾟ)`} </p>
-            )}
-            <p>{`연속으로 총 ${result.corrected} 문제를 맞추셨습니다`}</p>
-            <button onClick={goHome}>처음으로 돌아가기</button>
+            <CentralizedRow>
+            <select value={selected} onChange={(e) => setSelected((e.target as HTMLInputElement).value)}>
+              {Object.keys(songGroup).map((groupKey) => {
+                const group = songGroup[groupKey];
+                return (
+                  <optgroup label={group!.name} key={groupKey}>
+                    {group!.songsId.map((key) => (
+                      <option value={key}>{songlist[key]}</option>
+                    ))}
+                  </optgroup>
+                );
+              })}
+            </select>
+            </CentralizedRow>
+            <CentralizedRow />
+            <CentralizedRow>
+              <Button onClick={onSubmitClick} disabled={isLoadingResult || isLoadingProblem}>제출</Button>
+            </CentralizedRow>
           </div>
-        )
-      ) : (
-        <div>
-          <select value={selected} onChange={(e) => setSelected((e.target as HTMLInputElement).value)}>
-            {Object.keys(songGroup).map((groupKey) => {
-              const group = songGroup[groupKey];
-              return (
-                <optgroup label={group!.name} key={groupKey}>
-                  {group!.songsId.map((key) => (
-                    <option value={key}>{songlist[key]}</option>
-                  ))}
-                </optgroup>
-              );
-            })}
-          </select>
-          <button onClick={onSubmitClick} disabled={isLoadingResult || isLoadingProblem}>제출</button>
-        </div>
-      )}
+        )}
+      </CentralizedRow>
     </div>
   );
 };
