@@ -88,63 +88,63 @@ interface SongGroup {
 
 export const songGroup: SongGroup = {
   'G001': {
-    name: 'Aqours 1st single',
+    name: 'Aqours 1st 싱글',
     songsId: ['A0001', 'A0002', 'A0003'],
   },
   'G002': {
-    name: 'Aqours 2nd single',
+    name: 'Aqours 2nd 싱글',
     songsId: ['A0004', 'A0005', 'A0006'],
   },
   'G003': {
-    name: 'Unit 1st single',
+    name: '유닛 1st 싱글',
     songsId: ['A0007', 'A0008', 'A0009', 'A0010', 'A0011', 'A0012'],
   },
   'G004': {
-    name: 'Animation 1st season single',
+    name: '애니메이션 1기 싱글',
     songsId: ['A0013', 'A0014', 'A0015', 'A0016', 'A0017', 'A0018', 'A0019', 'A0020', 'A0021', 'A0022'],
   },
   'G005': {
-    name: 'LLSIF collabo single',
+    name: '스쿠페스 콜라보 싱글',
     songsId: ['A0023', 'A0024'],
   },
   'G006': {
-    name: 'Animation 1st season BD special',
+    name: '애니메이션 1기 BD 특전곡',
     songsId: ['A0025', 'A0026', 'A0027', 'A0028', 'A0029', 'A0030', 'A0031', 'A0032', 'A0033', 'A0034'],
   },
   'G007': {
-    name: 'Aqours 3rd single',
+    name: 'Aqours 3rd 싱글',
     songsId: ['A0035', 'A0036', 'A0037'],
   },
   'G008': {
-    name: 'Unit 2nd single',
+    name: '유닛 2nd 싱글',
     songsId: ['A0038', 'A0039', 'A0040', 'A0041', 'A0042', 'A0043'],
   },
   'G009': {
-    name: 'Aqours Next Step! Project',
+    name: 'Aqours Next Step! Project 테마송',
     songsId: ['A0044'],
   },
   'G010': {
-    name: 'Duo-Trio Collection vol.1',
+    name: '듀오트리오 콜렉션 vol.1',
     songsId: ['A0045', 'A0046', 'A0047', 'A0048'],
   },
   'G011': {
-    name: 'Animation 2nd season single',
+    name: '애니메이션 2기 싱글',
     songsId: ['A0049', 'A0050', 'A0051', 'A0052', 'A0053', 'A0054', 'A0055', 'A0056', 'A0057', 'A0058', 'A0059'],
   },
   'G012': {
-    name: 'Animation 2nd season BD special',
+    name: '애니메이션 2기 BD 특전곡',
     songsId: ['A0060', 'A0061', 'A0062', 'A0063', 'A0064', 'A0065', 'A0066', 'A0067', 'A0068', 'A0069', 'A0070', 'A0071', 'A0072'],
   },
   'G013': {
-    name: 'Aqours Hop! Step! Jump! Project!',
+    name: 'Aqours Hop! Step! Jump! Project! 테마송',
     songsId: ['A0073'],
   },
   'G014': {
-    name: 'Aqours 4th LoveLive! ~Sailing to the Sunshine~',
+    name: 'Aqours 4th LoveLive! ~Sailing to the Sunshine~ 테마송',
     songsId: ['A0074', 'A0075'],
   },
   'G015': {
-    name: 'Movie Seven-net special',
+    name: '극장판 사전예매권 특전',
     songsId: ['A0076', 'A0077', 'A0078'],
   },
 }
