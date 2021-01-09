@@ -43,6 +43,7 @@ const INITIAL_SELECTED = {
 
 const Problem: FunctionComponent<RouteComponentProps> = () => {
   const [isLoadingProblem, setIsLoadingProblem] = useState(false);
+  const [volume, setVolume] = useState(1.0);
   const [problem, setProblem] = useState({
     qNo: 0,
     assetPath: '',
@@ -142,7 +143,12 @@ const Problem: FunctionComponent<RouteComponentProps> = () => {
             <Paragraph>{`문제 길이: ${getProblemSec(problem.qNo)}초`}</Paragraph>
           </CentralizedRow>
           <CentralizedRow>
-            <audio src={problem.assetPath} controls>
+            <audio
+              src={problem.assetPath}
+              controls
+              volume={volume}
+              onVolumeChange={(e) => setVolume((e.target as HTMLAudioElement).volume)}
+            >
               HTML audio tag is not supported
             </audio>
           </CentralizedRow>
