@@ -77,6 +77,45 @@ export const songlist = {
   'A0076': 'ハジマリロード',
   'A0077': 'Marine Border Parasol',
   'A0078': '予測不可能Driving!',
+  'A0079': '僕らの走ってきた道は…',
+  'A0080': 'Next SPARKLING!!',
+  'A0081': '逃走迷走メビウスループ',
+  'A0082': 'Hop? Stop? Nonstop!',
+  'A0083': 'Believe again',
+  'A0084': 'Brightest Melody',
+  'A0085': 'Over The Next Rainbow',
+  'A0086': 'i-n-g, I TRY!!',
+  'A0087': 'Jump up HIGH!!',
+  'A0088': '冒険Type A, B, C!!',
+  'A0089': '未体験HORIZON',
+  'A0090': 'Deep Resonance',
+  'A0091': 'Dance with Minotaurus',
+  'A0092': 'KOKORO Magic "A to Z"',
+  'A0093': 'Wake up, Challenger!!',
+  'A0094': 'New Romantic Sailors',
+  'A0095': 'Love Pulsar',
+  'A0096': 'Phantom Rocket Adventure',
+  'A0097': 'Braveheart Coaster',
+  'A0098': 'CHANGELESS',
+  'A0099': 'コドク・テレポート',
+  'A0100': 'Amazing Travel DNA',
+  'A0101': '空中恋愛論',
+  'A0102': 'メイズセカイ',
+  'A0103': 'シャゼリア☆キッス☆ダダンダーン',
+  'A0104': 'Fantastic Departure!',
+  'A0105': 'Aqours Pirates Desire',
+  'A0106': 'JIMO-AI Dash!',
+  'A0107': 'Never giving up!',
+  'A0108': 'PURE PHRASE',
+  'A0109': 'コットンキャンディえいえいおー！',
+  'A0110': 'Dazzling White Town',
+  'A0111': 'Lonely Snow Planet',
+  'A0112': 'After The Rain',
+  'A0113': 'Future flight',
+  'A0114': 'キモチもユメも一緒だね！',
+  'A0115': '涙が雪になる前に',
+  'A0116': 'Misty Frosty Love',
+  'A0117': 'Party! Party! PaPaPaParty!',
 }
 
 interface SongGroup {
@@ -146,5 +185,61 @@ export const songGroup: SongGroup = {
   'G015': {
     name: '극장판 사전예매권 특전',
     songsId: ['A0076', 'A0077', 'A0078'],
+  },
+  'G016': {
+    name: '극장판 싱글',
+    songsId: ['A0079', 'A0080', 'A0081', 'A0082', 'A0083', 'A0084', 'A0085'],
+  },
+  'G017': {
+    name: '극장판 BD 특전곡',
+    songsId: ['A0086'],
+  },
+  'G018': {
+    name: 'Aqours Jumpin\'up Project 테마송',
+    songsId: ['A0087'],
+  },
+  'G019': {
+    name: '리얼 탈출 게임 콜라보 싱글',
+    songsId: ['A0088'],
+  },
+  'G020': {
+    name: 'Aqours 4th 싱글',
+    songsId: ['A0089', 'A0090', 'A0091'],
+  },
+  'G021': {
+    name: '스쿠스타 콜라보 싱글',
+    songsId: ['A0092', 'A0093'],
+  },
+  'G022': {
+    name: '유닛 스쿠페스 콜라보 싱글',
+    songsId: ['A0094', 'A0095', 'A0096', 'A0097', 'A0098', 'A0099', 'A0100', 'A0101', 'A0102'],
+  },
+  'G023': {
+    name: '유닛 라이브 어드벤쳐 테마송',
+    songsId: ['A0103'],
+  },
+  'G024': {
+    name: 'Aqours 6th LoveLive! DOME TOUR 2020 테마송',
+    songsId: ['A0104', 'A0105'],
+  },
+  'G025': {
+    name: 'Aqours 지모아이! Take Me Higher Project 테마송',
+    songsId: ['A0106'],
+  },
+  'G026': {
+    name: '솔로 앨범 신곡',
+    songsId: ['A0107', 'A0108', 'A0109'],
+  },
+  'G027': {
+    name: 'Saint Snow 1st 싱글',
+    songsId: ['A0110', 'A0111', 'A0112'],
+  },
+  'G028': {
+    name: 'Aqours CHRONICLE 신곡',
+    songsId: ['A0113'],
+  },
+  'G029': {
+    name: '듀오트리오 콜렉션 vol.2',
+    songsId: ['A0114', 'A0115', 'A0116', 'A0117'],
   },
 }
