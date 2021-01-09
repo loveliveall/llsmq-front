@@ -154,7 +154,7 @@ const Problem: FunctionComponent<RouteComponentProps> = () => {
         ) : (
           <>
             <CentralizedRow>
-            <Paragraph>틀렸습니다 ｡°(´∩ω∩`)°｡</Paragraph>
+              <Paragraph>틀렸습니다 ｡°(´∩ω∩`)°｡</Paragraph>
             </CentralizedRow>
             {answer_id && (
               <CentralizedRow>
