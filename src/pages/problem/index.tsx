@@ -138,47 +138,59 @@ const Problem: FunctionComponent<RouteComponentProps> = () => {
         </>
       )}
       {/* Answer & result section */}
-      <CentralizedRow>
-        {isResultShowing ? (
-          result.ok ? (
-            <>
+      {isResultShowing ? (
+        result.ok ? (
+          <>
+            <CentralizedRow>
               <Paragraph>정답입니다 ٩(๑＞◡＜๑)۶</Paragraph>
+            </CentralizedRow>
+            <CentralizedRow>
               <Paragraph>{`연속으로 ${result.corrected} 문제를 맞추셨습니다!`}</Paragraph>
+            </CentralizedRow>
+            <CentralizedRow>
               <Button onClick={onNextProblem}>다음 문제 풀기</Button>
-            </>
-          ) : (
-            <>
-              <Paragraph>틀렸습니다 ｡°(´∩ω∩`)°｡</Paragraph>
-              {answer_id && (
-                <Paragraph>{`정답은 ${songlist[answer_id as keyof typeof songlist]} 입니다 (*ﾟДﾟ)`} </Paragraph>
-              )}
-              <Paragraph>{`연속으로 총 ${result.corrected} 문제를 맞추셨습니다!`}</Paragraph>
-              <Button onClick={goHome}>처음으로 돌아가기</Button>
-            </>
-          )
+            </CentralizedRow>
+          </>
         ) : (
-          <div>
+          <>
             <CentralizedRow>
-            <select value={selected} onChange={(e) => setSelected((e.target as HTMLInputElement).value)}>
-              {Object.keys(songGroup).map((groupKey) => {
-                const group = songGroup[groupKey];
-                return (
-                  <optgroup label={group!.name} key={groupKey}>
-                    {group!.songsId.map((key) => (
-                      <option value={key}>{songlist[key]}</option>
-                    ))}
-                  </optgroup>
-                );
-              })}
-            </select>
+            <Paragraph>틀렸습니다 ｡°(´∩ω∩`)°｡</Paragraph>
             </CentralizedRow>
-            <CentralizedRow />
+            {answer_id && (
+              <CentralizedRow>
+                <Paragraph>{`정답은 ${songlist[answer_id as keyof typeof songlist]} 입니다 (*ﾟДﾟ)`} </Paragraph>
+              </CentralizedRow>
+            )}
             <CentralizedRow>
-              <Button onClick={onSubmitClick} disabled={isLoadingResult || isLoadingProblem}>제출</Button>
+              <Paragraph>{`연속으로 총 ${result.corrected} 문제를 맞추셨습니다!`}</Paragraph>
             </CentralizedRow>
-          </div>
-        )}
-      </CentralizedRow>
+            <CentralizedRow>
+              <Button onClick={goHome}>처음으로 돌아가기</Button>
+            </CentralizedRow>
+          </>
+        )
+      ) : (
+        <>
+          <CentralizedRow>
+          <select value={selected} onChange={(e) => setSelected((e.target as HTMLInputElement).value)}>
+            {Object.keys(songGroup).map((groupKey) => {
+              const group = songGroup[groupKey];
+              return (
+                <optgroup label={group!.name} key={groupKey}>
+                  {group!.songsId.map((key) => (
+                    <option value={key}>{songlist[key]}</option>
+                  ))}
+                </optgroup>
+              );
+            })}
+          </select>
+          </CentralizedRow>
+          <CentralizedRow />
+          <CentralizedRow>
+            <Button onClick={onSubmitClick} disabled={isLoadingResult || isLoadingProblem}>제출</Button>
+          </CentralizedRow>
+        </>
+      )}
     </div>
   );
 };
