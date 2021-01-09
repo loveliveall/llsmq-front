@@ -110,7 +110,7 @@ const Problem: FunctionComponent<RouteComponentProps> = () => {
 
   useEffect(() => {
     // Auto load problem on initial page load
-    //fetchProblem()
+    fetchProblem();
   }, [])
 
   const { answer_id } = result;
