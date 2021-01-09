@@ -142,10 +142,10 @@ const Problem: FunctionComponent<RouteComponentProps> = () => {
         result.ok ? (
           <>
             <CentralizedRow>
-              <Paragraph>정답입니다 ٩(๑＞◡＜๑)۶</Paragraph>
-            </CentralizedRow>
-            <CentralizedRow>
-              <Paragraph>{`연속으로 ${result.corrected} 문제를 맞추셨습니다!`}</Paragraph>
+              <div>
+                <Paragraph>정답입니다 ٩(๑＞◡＜๑)۶</Paragraph>
+                <Paragraph>{`연속으로 ${result.corrected} 문제를 맞추셨습니다!`}</Paragraph>
+              </div>
             </CentralizedRow>
             <CentralizedRow>
               <Button onClick={onNextProblem}>다음 문제 풀기</Button>
@@ -154,15 +154,13 @@ const Problem: FunctionComponent<RouteComponentProps> = () => {
         ) : (
           <>
             <CentralizedRow>
-              <Paragraph>틀렸습니다 ｡°(´∩ω∩`)°｡</Paragraph>
-            </CentralizedRow>
-            {answer_id && (
-              <CentralizedRow>
-                <Paragraph>{`정답은 ${songlist[answer_id as keyof typeof songlist]} 입니다 (*ﾟДﾟ)`} </Paragraph>
-              </CentralizedRow>
-            )}
-            <CentralizedRow>
-              <Paragraph>{`연속으로 총 ${result.corrected} 문제를 맞추셨습니다!`}</Paragraph>
+              <div>
+                <Paragraph>틀렸습니다 ｡°(´∩ω∩`)°｡</Paragraph>
+                {answer_id && (
+                  <Paragraph>{`정답은 ${songlist[answer_id as keyof typeof songlist]} 입니다 (*ﾟДﾟ)`} </Paragraph>
+                )}
+                <Paragraph>{`연속으로 총 ${result.corrected} 문제를 맞추셨습니다!`}</Paragraph>
+              </div>
             </CentralizedRow>
             <CentralizedRow>
               <Button onClick={goHome}>처음으로 돌아가기</Button>
