@@ -7,7 +7,7 @@ import { CentralizedRow, Paragraph, Button } from '@/styles';
 
 import { API_ENDPOINT } from '@/const';
 import { Route } from '@/routes';
-import { songlist, optionsForSelect } from '@/songlist';
+import { songlist, optionsForSelect, songShortcuts } from '@/songlist';
 
 import { getHandleName } from '@/utils';
 
@@ -188,7 +188,11 @@ const Problem: FunctionComponent<RouteComponentProps> = () => {
                 options={optionsForSelect}
                 filterOption={createFilter({
                   matchFrom: 'any',
-                  stringify: o => `${o.label}`,
+                  stringify: o => {
+                    const shortcut = songShortcuts[o.value as keyof typeof songShortcuts];
+                    const str = shortcut?.join(' ') ?? ''
+                    return `${o.label} ${str}`;
+                  },
                 })}
               />
             </div>
