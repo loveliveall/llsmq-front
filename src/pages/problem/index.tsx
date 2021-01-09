@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import { RouteComponentProps, navigate } from '@reach/router';
-import Select from 'react-select';
+import Select, { createFilter } from 'react-select';
 
 import { CentralizedRow, Paragraph, Button } from '@/styles';
 
@@ -186,6 +186,10 @@ const Problem: FunctionComponent<RouteComponentProps> = () => {
                 value={selected}
                 onChange={(e: SelectOption) => setSelected(e)}
                 options={optionsForSelect}
+                filterOption={createFilter({
+                  matchFrom: 'any',
+                  stringify: o => `${o.label}`,
+                })}
               />
             </div>
           </CentralizedRow>
